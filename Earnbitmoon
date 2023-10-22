@@ -5,8 +5,10 @@ title = "earnbitmoon",
 versi = "1.3",
 status = "online",
 host = "https://earnbitmoon.club/",
+host2 = "https://pastebin.com/",
+host4 = "https://vpnapi.io/",
+host5 = "http://ip-api.com/json",
 n = "\n";
-function Slow($msg){$slow = str_split($msg);foreach( $slow as $slowmo ){print $slowmo; usleep(70000);}}
 function getStr($string, $start, $end){
   $str = explode($start, $string);
   $str = explode($end, $str[1]);
@@ -33,8 +35,55 @@ if( PHP_OS_FAMILY == "Linux" || PHP_OS_FAMILY == "Windows"){
 	define("mp","\033[101m\033[1;37m");
 	define("pm","\033[107m\033[1;31m");
 }else{define("b","");define("c","");define("d","");define("h","");define("k","");define("m","");define("p","");define("u","");define("mp","");define("pm","");}
+function Curl($u, $h = 0, $p = 0,$lewat=0) {
+	while(true){
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $u);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_COOKIE,TRUE);
+		//curl_setopt($ch, CURLOPT_COOKIEFILE,"cookie.txt");
+		//curl_setopt($ch, CURLOPT_COOKIEJAR,"cookie.txt");
+		if($p) {
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $p);
+		}
+		if($h) {
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $h);
+		}
+		curl_setopt($ch, CURLOPT_HEADER, true);
+		$r = curl_exec($ch);
+		if($lewat)return 0;
+		$c = curl_getinfo($ch);
+		if(!$c) return "Curl Error : ".curl_error($ch); else{
+			$hd = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+			$bd = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+			curl_close($ch);
+			if(!$bd){
+				print m."koneksi lambat!";
+				sleep(2);
+				print "\r                    \r";
+				continue;
+			}
+			return array($hd,$bd)[1];
+		}
+	}
+}
 date_default_timezone_set("Asia/Jakarta");
 function Bn(){system("clear");$zone = TimeZone();$tanggal = Date("d-M-Y");$waktu = Date("H:i:s");$panjang = 50-strlen($zone.$tanggal.$waktu);$spasi = floor($panjang/2);$lokasi = c.$zone.str_repeat(" ",$spasi).$tanggal.str_repeat(" ",$spasi).$waktu;if($panjang % 2 == 1){$lokasi .= " ";}print $lokasi.n;print Line();Acssi_calvin(title);print mp.str_pad("© Copyright Gunjuneun_jabaibnida",50," ",STR_PAD_BOTH).d."\n";print pm.str_pad("® THANKS TO ALL TEAM FUNCTION",49," ",STR_PAD_BOTH)." ".d."\n";print Line();}function Acssi_calvin($string){$acssi = ["a" => ["┌─┐","├─┤","┴ ┴"],"b" => ["┌┐ ","├┴┐","└─┘"],"c" => ["┌─┐","│  ","└─┘"],"d" => ["┌┬┐"," ││","─┴┘"],"e" => ["┌─┐","├┤ ","└─┘"],"f" => ["┌─┐","├┤ ","└  "],"g" => ["┌─┐","│ ┬","└─┘"],"h" => ["┬ ┬","├─┤","┴ ┴"],"i" => ["┬","│","┴"],"j" => [" ┬"," │","└┘"],"k" => ["┬┌─","├┴┐","┴ ┴"],"l" => ["┬  ","│  ","┴─┘"],"m" => ["┌┬┐","│││","┴ ┴"],"n" => ["┌┐┌","│││","┘└┘"],"o" => ["┌─┐","│ │","└─┘"],"p" => ["┌─┐","├─┘","┴  "],"q" => ["┌─┐ ","│─┼┐","└─┘└"],"r" => ["┬─┐","├┬┘","┴└─"],"s" => ["┌─┐","└─┐","└─┘"],"t" => ["┌┬┐"," │ "," ┴ "],"u" => ["┬ ┬","│ │","└─┘"],"v" => ["┬  ┬","└┐┌┘"," └┘ "],"w" => ["┬ ┬","│││","└┴┘"],"x" => ["─┐ ┬","┌┴┬┘","┴ └─"],"y" => ["┬ ┬","└┬┘"," ┴ "],"z" => ["┌─┐","┌─┘","└─┘"]," "=>[" "," "," "],"1" => ["┬","│","┴"],  "2" => ["┌─┐","┌─┘","└─┘"],  "3" => ["┌─┐"," ├┤","└─┘"],"4" => ["┬ ┬","└─┤","  ┘"],"5" => ["┌─┐","└─┐","└─┘"],"6" => ["┌─┐","├─┐","└─┘"],"7" => ["┌─┐","  │","  ┘"],"8" => ["┌─┐","├─┤","└─┘"],"9" => ["┌─┐","└─┤","└─┘"],"0" => ["┌─┐","│ │","└─┘"]];$x = str_split($string);print " ";foreach($x as $data){print b.$acssi[$data][0];}print b." versi ".m.": ".p.versi.n." ";foreach($x as $data){print c.$acssi[$data][1];}print c." status".m.": ".p.status.n." ";foreach($x as $data){print p.$acssi[$data][2];}print n;}function TimeZone(){$api = json_decode(file_get_contents("http://ip-api.com/json"),1);if($api){$tz = $api["timezone"];date_default_timezone_set($tz);return $api["country"];}else{date_default_timezone_set("UTC");return "UTC";}}
+function Slow($msg){$slow = str_split($msg);foreach( $slow as $slowmo ){print $slowmo; usleep(70000);}}
+function Simpan($n){if(file_exists($n)) {$d = file_get_contents($n);}else{$d = readline("Input ".$n." : ".n);print n;file_put_contents($n,$d);}return $d;}
+function h($xml=0){
+	if($xml){
+		$h[] = "x-requested-with: XMLHttpRequest";
+	}
+	$h[] = "cookie: ".Simpan("Cookie");
+	$h[] = "user-agent: ".Simpan("User_Agent");
+	return $h;
+}
 function Tmr($tmr){
  $col = [b,c,d,k,m,u];
  $sym = [' ->>> ',' <<<- ',' ->>> ',' <<<- '];
@@ -58,14 +107,63 @@ function Tmr($tmr){
  print "\r                                   \r";
 }
 function Line(){return p.str_repeat('•',50).n;}
-function Simpan($n){if(file_exists($n)) {$d = file_get_contents($n);}else{$d = readline("Input ".$n." : ".n);print n;file_put_contents($n,$d);}return $d;}
+function load($str){
+        echo "\n";
+        $a = 100;
+        echo "\033[1;97m $str [\033[1;32m0%\033[1;97m] ████████████████████\r";
+    for($i=0;$i<$a;$i++){
+        $kon = intval($i/$a*100);
+        $kont = str_repeat('█',$kon/5);
+        echo "\033[1;97m $str [\033[1;32m".$kon."%\033[1;97m]\033[1;90m $kont\r";
+        usleep(30000);
+    }
+    echo "\033[1;97m $str [\033[1;32m100%\033[1;97m]\033[1;32m ████████████████████\r";
+}
+function u(){
+$h[] = "Content-Type: text/plain";
+   
+   return $h;
+}
+function vpn(){
+$r=json_decode(curl(host5,u()),1);
+$ip=$r["query"];
+$r=json_decode(curl(host4."api/$ip?key=d1cc00ef13be4fbeb46e311529a42631",u()),1);
+$status=$r["security"]["vpn"];
+if($status=="1"){
+echo Slow(mp."MAU NGEBOKEP ATAU NYARI CUAN BRE?? MATIIN VPN!!".n);
+exit;
+ }
+}
+bn();
+load("Memuat Server");
+echo Slow(h."                SERVER DI MUAT!!               \r");
+echo Slow("\r                                                   \r");
+bn();
+	balik:
+system("clear");
+bn();
+$user1=$licen=md5($user);
+$res=curl(host2."TKxjHifC",h());
+print h."Code Verif Script ".m."-> ".p.$user1.n;
+print Line();
+        if(strpos($res,$user1) === false){
+        echo Slow(m."$user Tidak Di Izinkan Untuk Mengakses Script!!\n");
+        echo p."please contact ".h."@Jim_dzalroza\n";
+print Line();
+        readline(h."enter to back!");
+        goto balik;
+        }else{
+ print Slow(h."$user Anda Di Izinkan Masuk!");
+ sleep(2);
+ echo Slow(h."\r                                                  \r");
+ }
 function iconcaptcha(){
 $header_web = [
 "Host: earnbitmoon.club",
 "x-requested-with:XMLHttpRequest",
 "content-type: multipart/form-data; boundary=----WebKitFormBoundaryMfVkbesHCEKKCVjy",
 "origin: https://earnbitmoon.club",
-"user-agent: ".Simpan("user"),
+"user-agent: ".Simpan("User_Agent"),
 "accept: */*",
 "referer: https://earnbitmoon.club/",
 "accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -76,7 +174,7 @@ $header_webs = [
 "content-type: multipart/form-data; boundary=----WebKitFormBoundaryPXIjpA5uCgwszbBB",
 "x-requested-with:XMLHttpRequest",
 "origin: https://earnbitmoon.club",
-"user-agent: ".Simpan("user"),
+"user-agent: ".Simpan("User_Agent"),
 "accept: */*",
 "referer: https://earnbitmoon.club/",
 "accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -85,7 +183,7 @@ $header_webs = [
 
 $header_img = [
 "Host: earnbitmoon.club",
-"user-agent: ".Simpan("user"),
+"user-agent: ".Simpan("User_Agent"),
 "accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
 "referer: https://earnbitmoon.club/",
 "accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -151,26 +249,28 @@ $post = curl_exec($ch);
 curl_close($ch);
 return($post);
 }
+Bn();
+vpn();
 $host = "earnbitmoon.club";
 $headers = [
 "Host: ".$host,
 "accept: application/json,text/javascript, */*; q=0.01",
 "x-requested-with:XMLHttpRequest",
-"user-agent: ".Simpan("user"),
+"user-agent: ".Simpan("User_Agent"),
 "content-type: application/x-www-form-urlencoded; charset=UTF-8",
 "cookie: ".Simpan("cookie")
 ];
-
+Bn();
 $header = [
 "Host: ".$host,
 "content-type: application/x-www-form-urlencoded; charset=UTF-8",
 "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-"user-agent: ".Simpan("user"),
+"user-agent: ".Simpan("User_Agent"),
 "cookie: ".Simpan("cookie")
 ];
 Bn();
 cookie:
-Simpan("user");
+Simpan("User_Agent");
 Simpan("cookie");
 verif();
 
@@ -193,7 +293,7 @@ faucet:
 $link = "https://earnbitmoon.club/";
 $r = get($link,$header);
 if(preg_match('/Just a moment.../',$r)){
-print Slow(m."CLOUDPELERR".n);
+print Slow(m."CLOUDFLARE".n);
 unlink("cookie");
 goto cookie;
 }
