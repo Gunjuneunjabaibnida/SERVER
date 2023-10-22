@@ -1,0 +1,226 @@
+error_reporting(0);
+date_default_timezone_set("Asia/Jakarta");
+const
+title = "earnbitmoon",
+versi = "1.3",
+status = "online",
+host = "https://earnbitmoon.club/",
+n = "\n";
+function Slow($msg){$slow = str_split($msg);foreach( $slow as $slowmo ){print $slowmo; usleep(70000);}}
+function getStr($string, $start, $end){
+  $str = explode($start, $string);
+  $str = explode($end, $str[1]);
+  return $str[0];
+}
+function verif(){
+$h=["Host: pastebin.com"];
+$r=curl("https://pastebin.com/y6U7Xefy",$h);
+$verif=explode('<',explode('<div class="de1">',$r)[1])[0];
+if($verif=="off"){
+unlink(__FILE__); 
+exit(m."Script Dinonaktifkan");
+  }
+}
+if( PHP_OS_FAMILY == "Linux" || PHP_OS_FAMILY == "Windows"){
+	define("b","\033[1;34m");
+	define("c","\033[1;36m");
+	define("d","\033[0m");
+	define("h","\033[1;32m");
+	define("k","\033[1;33m");
+	define("m","\033[1;31m"); 
+	define("p","\033[1;37m");
+	define("u","\033[1;35m");
+	define("mp","\033[101m\033[1;37m");
+	define("pm","\033[107m\033[1;31m");
+}else{define("b","");define("c","");define("d","");define("h","");define("k","");define("m","");define("p","");define("u","");define("mp","");define("pm","");}
+date_default_timezone_set("Asia/Jakarta");
+function Bn(){system("clear");$zone = TimeZone();$tanggal = Date("d-M-Y");$waktu = Date("H:i:s");$panjang = 50-strlen($zone.$tanggal.$waktu);$spasi = floor($panjang/2);$lokasi = c.$zone.str_repeat(" ",$spasi).$tanggal.str_repeat(" ",$spasi).$waktu;if($panjang % 2 == 1){$lokasi .= " ";}print $lokasi.n;print Line();Acssi_calvin(title);print mp.str_pad("© Copyright Gunjuneun_jabaibnida",50," ",STR_PAD_BOTH).d."\n";print pm.str_pad("® THANKS TO ALL TEAM FUNCTION",49," ",STR_PAD_BOTH)." ".d."\n";print Line();}function Acssi_calvin($string){$acssi = ["a" => ["┌─┐","├─┤","┴ ┴"],"b" => ["┌┐ ","├┴┐","└─┘"],"c" => ["┌─┐","│  ","└─┘"],"d" => ["┌┬┐"," ││","─┴┘"],"e" => ["┌─┐","├┤ ","└─┘"],"f" => ["┌─┐","├┤ ","└  "],"g" => ["┌─┐","│ ┬","└─┘"],"h" => ["┬ ┬","├─┤","┴ ┴"],"i" => ["┬","│","┴"],"j" => [" ┬"," │","└┘"],"k" => ["┬┌─","├┴┐","┴ ┴"],"l" => ["┬  ","│  ","┴─┘"],"m" => ["┌┬┐","│││","┴ ┴"],"n" => ["┌┐┌","│││","┘└┘"],"o" => ["┌─┐","│ │","└─┘"],"p" => ["┌─┐","├─┘","┴  "],"q" => ["┌─┐ ","│─┼┐","└─┘└"],"r" => ["┬─┐","├┬┘","┴└─"],"s" => ["┌─┐","└─┐","└─┘"],"t" => ["┌┬┐"," │ "," ┴ "],"u" => ["┬ ┬","│ │","└─┘"],"v" => ["┬  ┬","└┐┌┘"," └┘ "],"w" => ["┬ ┬","│││","└┴┘"],"x" => ["─┐ ┬","┌┴┬┘","┴ └─"],"y" => ["┬ ┬","└┬┘"," ┴ "],"z" => ["┌─┐","┌─┘","└─┘"]," "=>[" "," "," "],"1" => ["┬","│","┴"],  "2" => ["┌─┐","┌─┘","└─┘"],  "3" => ["┌─┐"," ├┤","└─┘"],"4" => ["┬ ┬","└─┤","  ┘"],"5" => ["┌─┐","└─┐","└─┘"],"6" => ["┌─┐","├─┐","└─┘"],"7" => ["┌─┐","  │","  ┘"],"8" => ["┌─┐","├─┤","└─┘"],"9" => ["┌─┐","└─┤","└─┘"],"0" => ["┌─┐","│ │","└─┘"]];$x = str_split($string);print " ";foreach($x as $data){print b.$acssi[$data][0];}print b." versi ".m.": ".p.versi.n." ";foreach($x as $data){print c.$acssi[$data][1];}print c." status".m.": ".p.status.n." ";foreach($x as $data){print p.$acssi[$data][2];}print n;}function TimeZone(){$api = json_decode(file_get_contents("http://ip-api.com/json"),1);if($api){$tz = $api["timezone"];date_default_timezone_set($tz);return $api["country"];}else{date_default_timezone_set("UTC");return "UTC";}}
+function Tmr($tmr){
+ $col = [b,c,d,k,m,u];
+ $sym = [' ->>> ',' <<<- ',' ->>> ',' <<<- '];
+ $text = ['You-claim-again '];
+ $text1 = [' minutes '];
+ $text2 = [' seconds '];
+ $timr = time()+$tmr;
+ $a = 0;
+ while(true){
+  $a +=1;
+  $x = $col[array_rand($col)];
+  $timerclaim = date('i:s',$res);
+ 
+  $res=$timr-time();
+  if($res < 1) {
+   break;
+  }
+  print $x.$sym[$a % 4].$x.$text[$a % 1].$x.$timerclaim.$x.$sym[$a % 4]." \r";
+  usleep(100000);
+ }
+ print "\r                                   \r";
+}
+function Line(){return p.str_repeat('•',50).n;}
+function Simpan($n){if(file_exists($n)) {$d = file_get_contents($n);}else{$d = readline("Input ".$n." : ".n);print n;file_put_contents($n,$d);}return $d;}
+function iconcaptcha(){
+$header_web = [
+"Host: earnbitmoon.club",
+"x-requested-with:XMLHttpRequest",
+"content-type: multipart/form-data; boundary=----WebKitFormBoundaryMfVkbesHCEKKCVjy",
+"origin: https://earnbitmoon.club",
+"user-agent: ".Simpan("user"),
+"accept: */*",
+"referer: https://earnbitmoon.club/",
+"accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+"cookie: ".Simpan("cookie"),
+];
+$header_webs = [
+"Host: earnbitmoon.club",
+"content-type: multipart/form-data; boundary=----WebKitFormBoundaryPXIjpA5uCgwszbBB",
+"x-requested-with:XMLHttpRequest",
+"origin: https://earnbitmoon.club",
+"user-agent: ".Simpan("user"),
+"accept: */*",
+"referer: https://earnbitmoon.club/",
+"accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+"cookie: ".Simpan("cookie"),
+];
+
+$header_img = [
+"Host: earnbitmoon.club",
+"user-agent: ".Simpan("user"),
+"accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+"referer: https://earnbitmoon.club/",
+"accept-language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+"cookie: ".Simpan("cookie"),
+];
+
+$link = "https://earnbitmoon.club/system/libs/captcha/request.php";
+$request = '------WebKitFormBoundaryPXIjpA5uCgwszbBB
+Content-Disposition: form-data; name="payload"
+
+
+eyJpIjoxLCJhIjoxLCJ0IjoiZGFyayIsInRzIjoxNjg3NDgzNDg5MjE3fQ==
+------WebKitFormBoundaryPXIjpA5uCgwszbBB--';
+$data = post($link,$header_webs,$request);
+$link = "https://earnbitmoon.club/system/libs/captcha/request.php?payload=eyJpIjoxLCJ0cyI6MTY4NzQ4MzQ5MDIzM30=";
+$data = get($link,$header_img);
+$payload = base64_encode('{"i":1,"x":91,"y":30,"w":310.824,"a":2,"ts":1687483494582}');
+$link = "https://earnbitmoon.club/system/libs/captcha/request.php";
+$request = '------WebKitFormBoundaryMfVkbesHCEKKCVjy
+Content-Disposition: form-data; name="payload"
+
+
+'.$payload.'
+------WebKitFormBoundaryMfVkbesHCEKKCVjy--';
+$data = post($link,$header_web,$request);
+}
+function randstring($max=6) {
+$i = 0;
+$possible_keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+$keys_length = strlen($possible_keys);
+$str = "";
+while($i<$max) {
+$rand = mt_rand(1,$keys_length-1);
+$str.= $possible_keys[$rand];
+$i++;
+    }
+    return $str;
+}
+function get($link,$header){
+$ch = curl_init();
+curl_setopt_array($ch, [
+CURLOPT_URL => $link,
+CURLOPT_FOLLOWLOCATION => 1,
+CURLOPT_RETURNTRANSFER => 1,
+CURLOPT_HTTPHEADER => $header,
+CURLOPT_SSL_VERIFYPEER => 0
+]);
+$data = curl_exec($ch);
+curl_close($ch);
+return($data);
+}
+function post($link,$header,$request){
+$ch = curl_init();
+curl_setopt_array($ch, [
+CURLOPT_URL => $link,
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_CUSTOMREQUEST => "POST",
+CURLOPT_POSTFIELDS => $request,
+CURLOPT_HTTPHEADER => $header,
+]);
+$post = curl_exec($ch);
+curl_close($ch);
+return($post);
+}
+$host = "earnbitmoon.club";
+$headers = [
+"Host: ".$host,
+"accept: application/json,text/javascript, */*; q=0.01",
+"x-requested-with:XMLHttpRequest",
+"user-agent: ".Simpan("user"),
+"content-type: application/x-www-form-urlencoded; charset=UTF-8",
+"cookie: ".Simpan("cookie")
+];
+
+$header = [
+"Host: ".$host,
+"content-type: application/x-www-form-urlencoded; charset=UTF-8",
+"accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+"user-agent: ".Simpan("user"),
+"cookie: ".Simpan("cookie")
+];
+Bn();
+cookie:
+Simpan("user");
+Simpan("cookie");
+verif();
+
+Bn();
+dashboard:
+$link = "https://earnbitmoon.club/";
+$r    = get($link,$header);
+if(preg_match('/Just a moment.../',$r)){
+print Slow(m."CLOUDPELERR".n);
+unlink("cookie");
+goto cookie;
+}
+$val =  getStr($r,'<div class="col-9 no-space">Coins Value <div class="text-success"><b>','</b></div></div>	');          
+$bal =  getStr($r,'<div class="text-primary"><b id="sidebarCoins">','</b></div>');
+$user=explode("</font>",explode('<font class="text-success">',$r)[1])[0];
+print h."Username   ".b."->> ".p.$user.n;
+print h."Balance    ".b."->> ".p."$bal | $val".n;
+print Line();
+faucet:
+$link = "https://earnbitmoon.club/";
+$r = get($link,$header);
+if(preg_match('/Just a moment.../',$r)){
+print Slow(m."CLOUDPELERR".n);
+unlink("cookie");
+goto cookie;
+}
+$val1 =  getStr($r,'<div class="col-9 no-space">Coins Value <div class="text-success"><b>','</b></div></div>	');          
+$bal1 =  getStr($r,'<div class="text-primary"><b id="sidebarCoins">','</b></div>');
+$token = getStr($r,"var token = '","';");
+$time = getStr($r,' $("#claimTime").countdown(',',');
+if($time){
+Tmr($time/1000-round(microtime(true)));
+}
+
+while(true){
+
+$icon = iconcaptcha();
+$link = "https://earnbitmoon.club/system/ajax.php";
+$data = "a=getFaucet&token=".$token."&captcha=3&challenge=false&response=false&ic-hf-id=1&ic-hf-se=91,30,310.824&ic-hf-hp=";
+$r = json_decode(post($link,$header,$data),1);
+$msg=trim(getStr($r["message"],'<i class="fa fa-check-circle fa-fw"></i> Congratulations,','<'));
+$fail=getStr($r["message"],'<i class="fa fa-exclamation-triangle fa-fw"></i>','<');
+if($r["status"] == 200){
+    print p."<• ".date('H:i:s')." •>".n;
+    print h." $msg ".n;
+    print h."Balance   ".b."->> ".p."$bal1 | $val1".n;
+    print Line();
+    goto faucet;
+    }else{
+    print m."$fail ";     
+    sleep(1);
+    echo "\r                                            \r";
+}}
