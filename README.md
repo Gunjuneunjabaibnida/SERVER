@@ -1,5 +1,6 @@
 
 WELCOME TO SERVER SCRIPT
 
-Ⓒ Script Copyright By JIMKHAKHO
+Ⓒ Copyright Script By JIMKHAKHO
 
+Chat Me https://t.me/Gunjuneun_jabaibnida
