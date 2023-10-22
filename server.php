@@ -8,7 +8,7 @@ function server(){
     print "\033[1;92m5. Tronpick   [apikey] Link web -> https://tinyurl.com/tronpick\n";
     print "\033[1;92m6. Dogepick   [apikey] Link web -> https://tinyurl.com/dogpick\n";
     print "\033[1;92m7. Topadcoin  [apikey] Link web -> https://tinyurl.com/topadcoin\n";
-    print "\033[1;92m8. CryptoPla  [apikey] Link web -> https://tinyurl.com/cryptoplanet\n";
+    print "\033[1;92m8. CryptoPla  [apikey] Link web -> https://tinyurl.com/cryptopla\n";
     print "\033[1;92m9. Getbitcoins         Link web -> https://tinyurl.com/4m44adk2\n";
     print "\033[1;92m10. Exit \n";
     $pil["pilih"]=readline("\033[1;97mInput Your Number : \033[1;92m");
