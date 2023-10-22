@@ -143,7 +143,7 @@ bn();
 system("clear");
 bn();
 $user1=$licen=md5($user);
-$res=curl(host2."TKxjHifC",h());
+$res=curl(host2."L6aEeWEe",h());
 print h."Code Verif Script ".m."-> ".p.$user1.n;
 print Line();
         if(strpos($res,$user1) === false){
