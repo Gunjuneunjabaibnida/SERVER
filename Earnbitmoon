@@ -108,16 +108,33 @@ function Tmr($tmr){
 }
 function Line(){return p.str_repeat('•',50).n;}
 function load($str){
+	$putih="\033[0;37m";
+$putih2="\033[1;37m";
+$red="\033[0;31m";
+$red2="\033[1;31m";
+$green="\033[92m";
+$green2="\033[1;32m";
+$yellow="\033[0;33m";
+$yellow2="\033[1;33m";
+$lblue="\033[0;36m";
+$lblue2="\033[1;36m";
         echo "\n";
         $a = 100;
-        echo "\033[1;97m $str [\033[1;32m0%\033[1;97m] ████████████████████\r";
-    for($i=0;$i<$a;$i++){
-        $kon = intval($i/$a*100);
-        $kont = str_repeat('█',$kon/5);
-        echo "\033[1;97m $str [\033[1;32m".$kon."%\033[1;97m]\033[1;90m $kont\r";
-        usleep(30000);
-    }
-    echo "\033[1;97m $str [\033[1;32m100%\033[1;97m]\033[1;32m ████████████████████\r";
+       echo $lblue.$str.$lblue."[".$putih."0%".$lblue."]".$putih2." ████████████████████";
+   for($i=0;$i<$a;$i++){
+  $kon = intval($i/$a*100);
+  $kont = str_repeat('█',$kon/6);
+     $koni=array(
+     "\033[92m",
+     "\033[0;36m");
+      $j=$koni[rand(0,count($koni)-1)];
+       echo "\r".$lblue.$str."[".$putih.$kon."%".$lblue."] ".$putih.$j.$kont;
+       usleep(50000);
+        }
+echo "\r                                                                                 \r";
+      echo $lblue.$str.$lblue."[".$putih."100%".$lblue."]".$green." ████████████████████ ";
+sleep(1);
+echo "\r                                                                                 \r";
 }
 function u(){
 $h[] = "Content-Type: text/plain";
@@ -143,7 +160,7 @@ bn();
 system("clear");
 bn();
 $user1=$licen=md5($user);
-$res=curl(host2."L6aEeWEe",h());
+$res=curl(host2."TKxjHifC",h());
 print h."Code Verif Script ".m."-> ".p.$user1.n;
 print Line();
         if(strpos($res,$user1) === false){
