@@ -34,7 +34,7 @@ function server(){
     }elseif($pil["pilih"]==10){
       exit;
     }else{
-      print slow("\033[1;91mmasukan pilihan dengan yang benar\n");
+      print slow("\033[1;91mmasukan pilihan yang benar\n");
       sleep (3);
       goto pil;
     }
