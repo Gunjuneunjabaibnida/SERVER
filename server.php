@@ -11,16 +11,16 @@ $yellow2="\033[1;33m";
 $lblue="\033[0;36m";
 $lblue2="\033[1;36m";
   pil:
-    print $putih2."1. Earnbitmoon ".$lblue2."         Link web -> ".$yellow2."https://tinyurl.com/3jr7ss2f\n";
-    print $putih2."2. Faucetpayz  ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/5fsu3sv5 \n";
-    print $putih2."3. Advies      ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/y2svh9fh\n";
-    print $putih2."4. Solpick     ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/59h4w63u\n";
-    print $putih2."5. Tronpick    ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/tronpick\n";
-    print $putih2."6. Dogepick    ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/dogpick\n";
-    print $putih2."7. Topadcoin   ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/topadcoin\n";
-    print $putih2."8. CryptoPla   ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/cryptoplanet\n";
-    print $putih2."9. Getbitcoins ".$lblue2."         Link web -> ".$yellow2."https://tinyurl.com/4m44adk2\n";
-    print $putih2."10. Exit \n";
+    print "\033[1;37m1. Earnbitmoon \033[1;36m         \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/3jr7ss2f\n";
+    print "\033[1;37m2. Faucetpayz  \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/5fsu3sv5 \n";
+    print "\033[1;37m3. Advies      \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/y2svh9fh\n";
+    print "\033[1;37m4. Solpick     \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/59h4w63u\n";
+    print "\033[1;37m5. Tronpick    \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/tronpick\n";
+    print "\033[1;37m6. Dogepick    \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/dogpick\n";
+    print "\033[1;37m7. Topadcoin   \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/topadcoin\n";
+    print "\033[1;37m8. CryptoPla   \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/cryptoplanet\n";
+    print "\033[1;37m9. Getbitcoins \033[1;36m         \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/4m44adk2\n";
+    print "\033[1;37m10. \033[1;31mExit \n";
     $pil["pilih"]=readline($putih."Input Your Number : \033[1;92m");
     print"\033[1;95m$r";
     if($pil["pilih"]==1){
