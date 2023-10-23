@@ -193,7 +193,7 @@ vpn();
 bn();
 	balik:
 system("clear");
-;bn();
+bn();
 $user1=$licen=md5($user);
 $res=curl(host2."TKxjHifC",h());
 print h."Code Verif Script ".m."-> ".p.$user1.n;
@@ -222,8 +222,8 @@ if(!$r["user"]){
 }
 system('clear');
 Bn();
-print h."Username ".p."=> ".k.$r["user"].n;
-print h."Balance  ".p."=> ".k.$r["bal"].m."║".k.$r["sat"].n;
+print h."Username ".p."-> ".k.$r["user"].n;
+print h."Balance  ".p."-> ".k.$r["bal"].m."║".k.$r["sat"].n;
 print line(); 
 while(true){
 	$r = Curl(host,h());
@@ -240,9 +240,9 @@ while(true){
 	$data = "a=getFaucet&token=".$token."&captcha=1&challenge=false&response=".$cap;
 	$r = json_decode(Curl(host.'system/ajax.php',h(),$data),1);
 	if($r["status"] == 200){
-		print h."Success  ".p."=> ".k.str_replace([" Congratulations, your ","was","and you won"],["".k],strip_tags($r["message"])).n;
+		print h."Success  ".p."-> ".k.str_replace([" Congratulations, your ","was","and you won"],["".k],strip_tags($r["message"])).n;
 		$r = dash();
-		print h."Balance  ".p."=> ".k.$r["bal"].m."║ ".k.$r["sat"].n;
+		print h."Balance  ".p."-> ".k.$r["bal"].m."║ ".k.$r["sat"].n;
 		print c."balance apikey -> ".rub($apikey).n;
 		print line();
 		if($r["cd"]){
