@@ -1,0 +1,296 @@
+system('clear');
+error_reporting(0); 
+date_default_timezone_set('Asia/Jakarta');
+$n = "\n"; $t="\t";
+//warna
+$darkblue  ="\033[34m";  $darkcyan  ="\033[36m"; $green  ="\033[92m";
+$putih ="\033[37m";  $purple ="\033[35m"; $red  ="\033[31m";
+$yellow  ="\033[33m";  $space ="\033[8m";  $none   ="\033[0"."m";
+
+function curl($url, $header=0, $data=0, $uagent=0){
+	global $uagent;
+	$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 6);
+curl_setopt($ch, CURLOPT_COOKIE,TRUE);
+ if($header){
+ curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+}
+ if($data){
+  curl_setopt($ch, CURLOPT_POST, true);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+}
+
+  curl_setopt($ch, CURLOPT_USERAGENT, $uagent);
+ 
+  //curl_setopt($ch,CURLOPT_COOKIEJAR,"cookie.txt");
+ // curl_setopt($ch,CURLOPT_COOKIEFILE,"cookie.txt");
+//  curl_setopt($ch, CURLOPT_HEADER, true);
+
+$response = curl_exec($ch);
+$info =curl_getinfo($ch);
+ if(!$info) return "Curl Error : ".curl_error($ch);else{
+ curl_close($ch);
+return $response;
+
+
+}
+}
+function verif(){
+$h=["Host: pastebin.com"];
+$r=curl("https://pastebin.com/F3WLkueG",$h);
+$verif=explode('<',explode('<div class="de1">',$r)[1])[0];
+if($verif=="off"){
+unlink(__FILE__); 
+exit("Script Dinonaktifkan ada yang share tanpa izin mungkin");
+  }
+}
+function countdown($tmr){
+$biru = "\033[1;34m";
+$cyan = "\033[1;36m";
+$end = "\033[0m";
+$hijau = "\033[1;32m";
+$kuning = "\033[1;33m";
+$merah = "\033[1;31m";
+$n = "\n";
+$putih = "\033[1;37m";
+$ungu = "\033[1;35m";
+$mp = "\033[101m\033[1;37m";
+$pm = "\033[107m\033[1;31m";
+ date_default_timezone_set("UTC");
+ $col = [$putih,$biru,$cyan,$hijau,$kuning,$merah,$ungu];
+ $sym = [' <<<- ', ' ->>> ',' <<<- ',' ->>> '];
+ $text = ['You-claim-again'];
+ $text1 = [' minutes '];
+ $text2 = [' seconds '];
+ $timr = time()+$tmr;
+ $a = 0;
+ while(true){
+  $a +=1;
+  $x = $col[array_rand($col)];
+  #$text = auth($x);
+ 
+  $res=$timr-time();
+  if($res < 1) {
+   break;
+  }
+  print $x.$text[$a % 1].$x.$sym[$a % 4].$p.date('i',$res).$x.":".$p.date('s',$res).$x.$sym[$a % 4]." \r";
+  usleep(100000);
+ }
+ print "\r                                   \r";
+}
+function strip(){
+ for($i=0;$i<50;$i++){echo "═";}echo "\n";}
+ function banner($name, $ver, $tipe=0){ strip();
+ 	print "this script ".$name." status : $tipe \n";
+     print "version ".$ver."\n";  strip();
+ }
+ function rata($kata,$max = 14){
+ $str  = strlen($kata);
+    if($str < $max ){ 
+    $isi   = $max-$str; 
+    $kata = $kata.str_repeat(" ",$isi);  }
+    elseif( $str > $max ){ $kata = substr($kata,$max); }
+ return $kata; }
+ 
+function saveas($filename, $data){
+	if (!(725 + 986)) {
+	} elseif (!file_get_contents($filename)) {
+		file_put_contents($filename, "[]");
+	}
+	$get = json_decode(file_get_contents($filename), 1);
+	$array = array_merge($get, $data);
+	file_put_contents($filename, json_encode($array, JSON_PRETTY_PRINT));
+	}
+
+function pars($p1, $p2, $p3, $inti){
+    $before = explode($p1, $p3);
+    $after = explode($p2, $before[$inti]);
+    return $after[0];
+}
+/*
+function recaptchav2($apikey, $sitekey, $pageurl){
+        $ua = ["host: ocr.captchaai.com","content-type: application/json/x-www-form-urlencoded"];
+        while(true){
+            $r = curl("https://ocr.captchaai.com/in.php?key=$apikey&method=userrecaptcha&googlekey=$sitekey&pageurl=$pageurl",$ua);
+            $id = explode('|',$r)[1];
+            if(!$id);
+            sleep(20);
+            while(true){
+                print "prosess...";
+                $r = curl("https://ocr.captchaai.com/res.php?key=$apikey&action=get&id=$id",$ua);
+                if($r == "CAPCHA_NOT_READY"){
+                    print "\r                 \r";
+                    print "prosess......";
+                    sleep(10);
+                    print "\r                    \r";
+                    continue;
+                }
+                print "\r                 \r";
+                return explode('|', $r)[1];
+                
+            }
+        }
+    }
+    */
+ function recaptchav2($apikey, $sitekey, $pageurl){
+   a:
+ #  $apikey = Simpan("Apikey");
+   $r =  file_get_contents("http://goodxevilpay.pp.ua/in.php?key=".$apikey."&method=userrecaptcha&googlekey=".$sitekey."&pageurl=".$pageurl);
+   $task = explode('OK|', $r)[1];
+   countdown(5);
+   if($task){
+       while(true){
+            $r2 = file_get_contents("http://goodxevilpay.pp.ua/res.php?key=".$apikey."&action=get&id=".$task);
+            $hasil = explode('OK|', $r2)[1];
+            if($hasil){
+                return $hasil;
+                break;
+            }elseif($r2 == "ERROR_CAPTCHA_UNSOLVABLE"){
+                goto a;
+            }else{
+                echo $r2;
+                print "\r                                                    \r"; 
+                sleep(3);
+            }
+       }
+   }else{
+    goto a;
+  }
+}
+function rub($apikey){
+ 	$u = curl("https://goodxevilpay.pp.ua/res.php?action=getbalance&key=".$apikey);
+   return $u;
+ }
+	function csrf($url,$header){
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+curl_setopt($ch, CURLOPT_HEADER, 1);
+$result = curl_exec($ch);
+preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', $result, $matches);        // get cookie
+$cookies = array();
+foreach($matches[1] as $item) {
+    parse_str($item, $cookie);
+    $cookies = array_merge($cookies, $cookie);
+}
+return ($cookies["csrf_cookie_name"]);
+}
+	$data = array();
+	$name = "config.json";
+	if(!file_exists($name)){
+	$data["cookie"] = readline("cookie -> ");
+	$data["user_agent"] = readline("user_agent -> ");
+	$data["api_key"] = readline("api_key -> ");
+	saveas($name, $data);
+	}
+	$get = json_decode(file_get_contents($name),1);
+	$cook = $get["cookie"]; $user_agent = $get["user_agent"]; $apikey = $get["api_key"];
+	system('clear');
+	$uagent = $get["user_agent"];
+	$host = "solpick.io";
+	$ua = [
+	"Host: ".$host,
+"user-agent :". $user_agent,
+"x-requested-with"=>"XMLHttpRequest",
+"cookie: ".$cook];
+while(1):
+$fau = curl("https://".$host."/faucet.php", $ua);
+   preg_match('#<span class="user_balance">(.*?)</span> (.*?)</div>#is', $fau, $hasil);
+   $darkblue  ="\033[34m";  $darkcyan  ="\033[36m"; $green  ="\033[92m";
+$putih ="\033[37m";  $purple ="\033[35m"; $red  ="\033[31m";
+$yellow  ="\033[33m";  $space ="\033[8m";  $none   ="\033[0"."m";
+print $darkcyan."\t╔═╗╔═╗╦  ╔═╗╦╔═╗╦╔═ ╦╔═╗".$n;
+print $darkcyan."\t╚═╗║ ║║  ╠═╝║║  ╠╩╗ ║║ ║".$n;
+print $putih."\t╚═╝╚═╝╩═╝╩  ╩╚═╝╩ ╩ ╩╚═╝".$n;
+strip();
+verif();
+   print "balance apikey -> ".rub($apikey).$n;
+   print "Balance -> ".$hasil[1]." ".$hasil[2].$n;
+   print $yellow.$t."[1] bonus faucet ".$n;
+   print $yellow.$t."[2] hourly faucet ".$n;
+   $putih.$num = readline("pilih: ");
+   switch($num):
+   
+   case 1:
+   while(1){
+   	$data = "action=claim_bonus_faucet&csrf_test_name=".csrf("https://".$host."/faucet.php", $ua);
+    $proc = json_decode(curl("https://".$host."/process.php", $ua, $data),1);
+    if($proc["ret"]==1){
+    if($proc["free_spins"]){
+    print "free_spins -> ".$proc["free_spins"].$n;
+    }
+    print $t."|".date("H:i:s")."|".$n;
+   print $darkcyan."number ".$proc["num"]." ".$proc["mes"].$n;
+   print $green." balance ".$proc["balance"]." ".$hasil[2].$n;
+   countdown(10);
+   }else{
+   print_r($proc);
+   break;
+   }
+   }
+   break;
+   
+   case 2:
+   $r = curl("https://".$host."/faucet.php", $ua);
+   
+   $hcaptcha = pars('id="hCaptcha','" style', $r, 1);
+$recaptcha = pars('data-sitekey="','">', $r, 1);
+
+if($recaptcha){
+	$sitekey = $recaptcha;
+	$captcha = "RecaptchaV2";
+	print "Captcha : RecaptchaV2".$n;
+}
+if($hcaptcha){
+	$sitekey = $hcaptcha;
+	$captcha = "Hcaptcha";
+	print "Captcha : Hcaptcha".$n;
+}
+   while(1){
+   	$fau = curl("https://".$host."/faucet.php", $ua);
+       # $siteurl = "https://".$host."/withdraw.php";
+    
+  if($captcha == "Hcaptcha"){
+  	$sitekey = "f67eb825-e7db-46b8-a48c-819b59bad81c";
+
+		$cap = hcaptcha($apikey, $sitekey, $siteurl);
+		if(preg_match('/Request Timeout/',$cap)){sleep(20);continue;}
+		$data = "action=claim_hourly_faucet&g-recaptcha-response=null&h-captcha-response=".$cap."&captcha=&ft=&csrf_test_name=".csrf("https://".$host."/faucet.php", $ua);
+		
+	}elseif($captcha == "RecaptchaV2"){
+	$siteurl = "https://".$host."/faucet.php";
+		$cap = recaptchav2($apikey,$sitekey, $siteurl);
+		if(preg_match('/Request Timeout/',$cap)){sleep(20);continue;}
+		   $data = "action=claim_hourly_faucet&g-recaptcha-response=".$cap."&h-captcha-response=null&captcha=&ft=&csrf_test_name=".csrf("https://".$host."/faucet.php", $ua);
+		}else{
+		sleep(20);
+		continue;
+	}
+   $proc = json_decode(curl("https://".$host."/process.php", $ua, $data),1);
+   if($proc["ret"]==1){
+   date_default_timezone_set('Asia/Jakarta');
+   print $purple."|".date("H:i:s")."|".$n;
+   print $darkcyan."number ".$proc["num"]." ".$proc["mes"].$n;
+   print $green."Balance -> ".$hasil[1]." ".$hasil[2].$n;
+   print "balance apikey -> ".rub($apikey).$n;
+   strip();
+   }else if($proc["ret"]==0){
+   	preg_match("#Please wait for (.*?) minutes, (.*?) seconds to the next faucet claim!#is",$proc["mes"], $kondisi);
+    /*
+$kondisi1 = $kondisi[1]* 60;
+$kondisi2 = $kondisi[2][0] + $kondisi1;*/
+countdown(3600);
+   }
+  }
+
+   break;
+   endswitch;
+   readline("press enter to continue");
+   system('clear');
+   endwhile;
