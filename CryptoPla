@@ -1,0 +1,302 @@
+error_reporting(0);
+const
+title = "crypto-planet",
+versi = "1.0",
+status = "online",
+host = "https://crypto-planet.click/",
+n = "\n";
+#https://passivedrip.com/roll.html
+unlink("cookie.txt");
+if( PHP_OS_FAMILY == "Linux" || PHP_OS_FAMILY == "Windows"){
+	define("b","\033[1;34m");
+	define("c","\033[1;36m");
+	define("d","\033[0m");
+	define("h","\033[1;32m");
+	define("k","\033[1;33m");
+	define("m","\033[1;31m"); 
+	define("p","\033[1;37m");
+	define("u","\033[1;35m");
+	define("mp","\033[101m\033[1;37m");
+	define("pm","\033[107m\033[1;31m");
+}else{define("b","");define("c","");define("d","");define("h","");define("k","");define("m","");define("p","");define("u","");define("mp","");define("pm","");}
+date_default_timezone_set("Asia/Jakarta");
+unlink("cookie.txt");
+function Curl($u, $h = 0, $p = 0) {
+	while(true){
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $u);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_COOKIE,TRUE);
+		//curl_setopt($ch, CURLOPT_COOKIEFILE,"cookie.txt");
+		//curl_setopt($ch, CURLOPT_COOKIEJAR,"cookie.txt");
+		if($p) {
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $p);
+		}
+		if($h) {
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $h);
+		}
+		curl_setopt($ch, CURLOPT_HEADER, true);
+		$r = curl_exec($ch);
+		$c = curl_getinfo($ch);
+		if(!$c) return "Curl Error : ".curl_error($ch); else{
+			$hd = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+			$bd = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+			curl_close($ch);
+			return array($hd,$bd)[1];
+		}
+	}
+}
+function verif(){
+$h=["Host: pastebin.com"];
+$r=curl("https://pastebin.com/vNgybhzP",$h);
+$verif=explode('<',explode('<div class="de1">',$r)[1])[0];
+if($verif=="off"){
+unlink(__FILE__); 
+exit(m."Script Dinonaktifkan");
+  }
+}
+ function recaptchav2($apikey, $sitekey, $pageurl){
+   b:
+  # $apikey = Simpan("Apikey");
+   $r =  file_get_contents("http://goodxevilpay.pp.ua/in.php?key=".$apikey."&method=userrecaptcha&googlekey=".$sitekey."&pageurl=".$pageurl);
+   $task = explode('OK|', $r)[1];
+   tmr(5);
+   if($task){
+       while(true){
+            $r2 = file_get_contents("http://goodxevilpay.pp.ua/res.php?key=".$apikey."&action=get&id=".$task);
+            $hasil = explode('OK|', $r2)[1];
+            if($hasil){
+                return $hasil;
+                break;
+            }elseif($r2 == "ERROR_CAPTCHA_UNSOLVABLE"){
+                goto b;
+            }else{
+                echo $r2;
+                print "\r                                                    \r"; 
+                sleep(3);
+            }
+       }
+   }else{
+    goto b;
+  }
+}
+function rub($apikey){
+ 	$u = curl("https://goodxevilpay.pp.ua/res.php?action=getbalance&key=".$apikey);
+   return $u;
+ }
+
+ function v2($apikey, $sitekey, $pageurl){
+   a:
+   #$apikey =file_get_contents("apikey");
+   $r =  file_get_contents("http://api.multibot.in/in.php?key=".$apikey."&method=userrecaptcha&googlekey=".$sitekey."&pageurl=".$pageurl);
+   $task = explode('OK|', $r)[1];
+   tmr(10);
+   if($task){
+       while(true){
+            $r2 = file_get_contents("http://api.multibot.in/res.php?key=".$apikey."&action=get&id=".$task);
+            $hasil = explode('OK|', $r2)[1];
+            if($hasil){
+                return $hasil;
+                break;
+            }elseif($r2 == "ERROR_CAPTCHA_UNSOLVABLE"){
+                goto a;
+            }else{
+                echo h."$r2";
+                sleep(3);
+                print "\r                          \r";
+            }
+       }
+   }else{
+    goto a;
+  }
+}
+Bn();
+menu: 
+print h."pilih salah satu untuk memakai provider bypassnya ".n;
+print line();
+print h."1.goodxevilpay".n;
+print h."2.multibot".n;
+print line();
+$pilih=readline("input angka: ");
+print line();
+if($pilih==1){
+file_put_contents("mode",$pilih);
+}elseif($pilih==2){
+file_put_contents("mode", $pilih);
+}else{
+exit("pilih yang bener ngapa");
+}
+function ptc(){
+ptc:
+$r=curl(host."ptc.html",h());
+$id=explode('">',explode('<div class="website_block" id="',$r)[1])[0];
+$key=explode("',",explode("'&key=",$r)[1])[0];
+if(!$id){
+exit(p."PTC ADS HABIS!".n);
+print line();
+}
+$r=curl(host."surf.php?sid=".$id."&key=".$key,h());
+$time=explode(";",explode("var secs =",$r)[1])[0];
+if($time){
+tmr($time);
+}
+$token=explode("';",explode("var token = '",$r)[1])[0];
+
+$data="cID=0&rT=1&tM=light";
+$cap=json_decode(curl(host."system/libs/captcha/request.php",h(),$data),1);
+
+foreach($cap as $caps){
+$data="cID=0&pC=".$caps."&rT=2";
+$r=curl(host."system/libs/captcha/request.php",h(),$data);
+
+$data="a=proccessPTC&data=".$id."&token=".$token."&captcha-idhf=0&captcha-hf=".$caps;
+$r=json_decode(curl(host."system/ajax.php",h(),$data),1);
+$inv=trim(explode('<',explode('<i class="fa fa-exclamation-triangle"></i>',$r["message"])[1])[0]);
+$sts=explode('</b>',explode('<b>',$r["message"])[1])[0];
+$suc=explode('</div>',explode('</b>',$r["message"])[1])[0];
+$r=curl(host,h());
+$bal1=explode('<',explode('<div class="text-success"><b>',$r)[1])[0];
+if($sts=="SUCCESS"){
+date_default_timezone_set('Asia/Jakarta');
+print k."|".date("H:i:s")."| ".n;	
+print h."$sts $suc ".n;
+print h."Token ".m."->> ".p.$bal1.n;
+print line();
+goto ptc;
+}else{
+print m."$inv";
+sleep(1);
+print "\r                                                          \r";
+  }
+ }
+}
+function roll(){
+a:
+$r=curl(host."roll.html",h());
+if(preg_match('/You must visit 3 more Shortlinks today to be able to Roll/',$r)){
+exit(m."You must visit 3 more Shortlinks today to be able to Roll".n);
+}
+
+
+$time=explode('Minutes',explode('<span id="claimTime">',$r)[1])[0];
+if($time){
+tmr(300);
+}
+#$apikey=file_get_contents("apikey");
+$token=explode("';",explode("var token = '",$r)[1])[0];
+$sitekey=explode('">',explode('<div class="g-recaptcha" data-sitekey="',$r)[1])[0];
+if(!$sitekey){
+goto a;
+} 
+if(file_get_contents("mode")=="1"){
+	$apikey = simpan("apikey_goodxevilpay");
+	$cap=recaptchav2($apikey,$sitekey,host);
+	if(!$cap){ goto a;}
+	}else if(file_get_contents("mode")=="2"){
+		$apikey = simpan("apikey_multibot");
+$cap=v2($apikey,$sitekey,host);
+if(!$cap){ goto a; }
+}
+$data="a=getBonusRoll&token=".$token."&captcha=1&challenge=false&response=".$cap;
+$r=json_decode(curl(host."system/ajax.php",h(),$data),1);
+$suc=trim(explode('<',explode('<i class="fa fa-check-circle fa-fw"></i> Congratulations,',$r["message"])[1])[0]);
+$r=curl(host,h());
+$bal1=explode('<',explode('<div class="text-success"><b>',$r)[1])[0];
+if($suc){
+date_default_timezone_set('Asia/Jakarta');
+print k."|".date("H:i:s")."|".n;	
+print h."$suc".n;
+print h."Token ".m."->> ".p.$bal1.n;
+print line();
+goto a;
+}else{
+print m."invalid respon";
+sleep(1);
+exit;
+  }
+}
+
+function Slow($msg){$slow = str_split($msg);foreach( $slow as $slowmo ){print $slowmo; usleep(70000);}}
+function Bn(){system("clear");$zone = TimeZone();$tanggal = Date("d-M-Y");$waktu = Date("H:i:s");$panjang = 50-strlen($zone.$tanggal.$waktu);$spasi = floor($panjang/2);$lokasi = c.$zone.str_repeat(" ",$spasi).$tanggal.str_repeat(" ",$spasi).$waktu;if($panjang % 2 == 1){$lokasi .= " ";}print $lokasi.n;print Line();Acssi_calvin(title);print mp.str_pad("SCRIPT BY TEAM PREMIUM",50," ",STR_PAD_BOTH).d."\n";print pm.str_pad("THANKS TO ALL TEAM PREMIUM",49," ",STR_PAD_BOTH)." ".d."\n";print Line();}function Acssi_calvin($string){$acssi = ["a" => ["┌─┐","├─┤","┴ ┴"],"b" => ["┌┐ ","├┴┐","└─┘"],"c" => ["┌─┐","│  ","└─┘"],"d" => ["┌┬┐"," ││","─┴┘"],"e" => ["┌─┐","├┤ ","└─┘"],"f" => ["┌─┐","├┤ ","└  "],"g" => ["┌─┐","│ ┬","└─┘"],"h" => ["┬ ┬","├─┤","┴ ┴"],"i" => ["┬","│","┴"],"j" => [" ┬"," │","└┘"],"k" => ["┬┌─","├┴┐","┴ ┴"],"l" => ["┬  ","│  ","┴─┘"],"m" => ["┌┬┐","│││","┴ ┴"],"n" => ["┌┐┌","│││","┘└┘"],"o" => ["┌─┐","│ │","└─┘"],"p" => ["┌─┐","├─┘","┴  "],"q" => ["┌─┐ ","│─┼┐","└─┘└"],"r" => ["┬─┐","├┬┘","┴└─"],"s" => ["┌─┐","└─┐","└─┘"],"t" => ["┌┬┐"," │ "," ┴ "],"u" => ["┬ ┬","│ │","└─┘"],"v" => ["┬  ┬","└┐┌┘"," └┘ "],"w" => ["┬ ┬","│││","└┴┘"],"x" => ["─┐ ┬","┌┴┬┘","┴ └─"],"y" => ["┬ ┬","└┬┘"," ┴ "],"z" => ["┌─┐","┌─┘","└─┘"]," "=>[" "," "," "],"1" => ["┬","│","┴"],  "2" => ["┌─┐","┌─┘","└─┘"],  "3" => ["┌─┐"," ├┤","└─┘"],"4" => ["┬ ┬","└─┤","  ┘"],"5" => ["┌─┐","└─┐","└─┘"],"6" => ["┌─┐","├─┐","└─┘"],"7" => ["┌─┐","  │","  ┘"],"8" => ["┌─┐","├─┤","└─┘"],"9" => ["┌─┐","└─┤","└─┘"],"0" => ["┌─┐","│ │","└─┘"]];$x = str_split($string);print " ";foreach($x as $data){print b.$acssi[$data][0];}print b." versi ".m.": ".p.versi.n." ";foreach($x as $data){print c.$acssi[$data][1];}print c." status".m.": ".p.status.n." ";foreach($x as $data){print p.$acssi[$data][2];}print n;}function TimeZone(){$api = json_decode(file_get_contents("http://ip-api.com/json"),1);if($api){$tz = $api["timezone"];date_default_timezone_set($tz);return $api["country"];}else{date_default_timezone_set("UTC");return "UTC";}}
+function Simpan($n){if(file_exists($n)) {$d = file_get_contents($n);}else{$d = readline("Input ".$n." : ".n);print n;file_put_contents($n,$d);}return $d;}
+function Tmr($tmr){
+ $col = [b,c,d,k,m,u];
+ $sym = [' ->>> ',' <<<- ',' ->>> ',' <<<- '];
+ $text = ['You-claim-again '];
+ $text1 = [' minutes '];
+ $text2 = [' seconds '];
+ $timr = time()+$tmr;
+ $a = 0;
+ while(true){
+  $a +=1;
+  $x = $col[array_rand($col)];
+  $timerclaim = date('i:s',$res);
+ 
+  $res=$timr-time();
+  if($res < 1) {
+   break;
+  }
+  print $x.$sym[$a % 4].$x.$text[$a % 1].$x.$timerclaim.$x.$sym[$a % 4]." \r";
+  usleep(100000);
+ }
+ print "\r                                   \r";
+}
+function Line(){return p.str_repeat('═',50).n;}
+function h(){
+    $h[] = "Host:crypto-planet.click";
+	$h[] = "upgrade-insecure-requests: 1";
+	$h[] = "user-agent: ".Simpan("user_agent");
+	$h[] = "Accept:application/json, text/javascript, */*; q=0.01";
+	$h[] = "X-Requested-With:XMLHttpRequest";
+	$h[] = "cookie: ".Simpan("cookie");
+	return $h;
+}
+
+cookie:
+Bn();
+verif();
+$cookie = Simpan("Cookie");
+$user_agent = Simpan("User_Agent");
+$apikey = simpan("apikey_multibot");
+$apikey2 = simpan("apikey_goodxevilpay");
+system("clear");
+
+$r=curl(host,h());
+$user=explode('<',explode('<a href="/membership.html" class="text-success">',$r)[1])[0];
+$bal=explode('<',explode('<div class="text-success"><b>',$r)[1])[0];
+$val=explode('<',explode('<div class="text-primary"><b id="sidebarCoins">',$r)[1])[0];
+$val2=explode('<',explode('<small class="text-success">',$r)[1])[0];
+Bn();
+if(!$bal){
+print m."SESSION EXPIRED!";
+sleep(1);
+print "\r                                 \r";
+unlink("cookie");
+goto cookie;
+}
+Bn();
+if(file_get_contents("mode")==1){
+	$b = "goodxevilpay";
+	}else{ $b = "multibot";}
+	
+print "mode ->".$b.n;
+print c."balance apikey -> ".rub($apikey2).n;
+print h."Username ".m."-> ".p.$user.n;
+print h."Token ".m."-> ".p.$bal.n;
+print h."Coins ".m."-> ".p."$val ".k."/"." $val2".n.n;
+print h."1.Roll".n;
+print h."2.Ptc".n;
+print line();
+$pilih=readline(h."input angka: ".p).n;
+if($pilih==1){
+roll();
+}elseif($pilih==2){
+ptc();
+}else{
+exit("pilih yang bener ngapa");
+}
