@@ -1,15 +1,5 @@
 function server(){
-  $r =  str_repeat($lblue."=", 53)."\n";
-$putih="\033[0;37m";
-$putih2="\033[1;37m";
-$red="\033[0;31m";
-$red2="\033[1;31m";
-$green="\033[92m";
-$green2="\033[1;32m";
-$yellow="\033[0;33m";
-$yellow2="\033[1;33m";
-$lblue="\033[0;36m";
-$lblue2="\033[1;36m";
+  $r =  str_repeat("\033[0;36m=", 53)."\n";
   pil:
     print "\033[1;37m1. Earnbitmoon \033[1;36m         \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/3jr7ss2f\n";
     print "\033[1;37m2. Faucetpayz  \033[1;36m[apikey] \033[1;32mLink web -> \033[1;33mhttps://tinyurl.com/5fsu3sv5 \n";
