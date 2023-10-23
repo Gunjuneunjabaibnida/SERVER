@@ -26,21 +26,21 @@ $lblue2="\033[1;36m";
     if($pil["pilih"]==1){
       eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Earnbitmoon'));
     }elseif($pil["pilih"]==2){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Faucetpayz'));
     }elseif($pil["pilih"]==3){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Advies'));
     }elseif($pil["pilih"]==4){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Solpick'));
     }elseif($pil["pilih"]==5){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Tronpick'));
     }elseif($pil["pilih"]==6){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Dogepick'));
     }elseif($pil["pilih"]==7){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Topadcoin'));
     }elseif($pil["pilih"]==8){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/CryptoPla'));
     }elseif($pil["pilih"]==9){
-      eval(file_get_contents('Coming son'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Getbitcoins'));
     }elseif($pil["pilih"]==10){
       exit;
     }else{
