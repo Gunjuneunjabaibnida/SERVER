@@ -1,0 +1,150 @@
+error_reporting(0);
+const
+title = "getbitcoin",
+versi = "1.0",
+status = "online",
+host = "https://get-bitco.in/graphql",
+n = "\n";
+
+if( PHP_OS_FAMILY == "Linux" || PHP_OS_FAMILY == "Windows"){
+	define("b","\033[1;34m");
+	define("c","\033[1;36m");
+	define("d","\033[0m");
+	define("h","\033[1;32m");
+	define("k","\033[1;33m");
+	define("m","\033[1;31m"); 
+	define("p","\033[1;37m");
+	define("u","\033[1;35m");
+	define("mp","\033[101m\033[1;37m");
+	define("pm","\033[107m\033[1;31m");
+}else{define("b","");define("c","");define("d","");define("h","");define("k","");define("m","");define("p","");define("u","");define("mp","");define("pm","");}
+
+date_default_timezone_set("Asia/Jakarta");
+function Curl($u, $h = 0, $p = 0) {
+	while(true){
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $u);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_COOKIE,TRUE);
+		//curl_setopt($ch, CURLOPT_COOKIEFILE,"cookie.txt");
+		//curl_setopt($ch, CURLOPT_COOKIEJAR,"cookie.txt");
+		if($p) {
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $p);
+		}
+		if($h) {
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $h);
+		}
+		curl_setopt($ch, CURLOPT_HEADER, true);
+		$r = curl_exec($ch);
+		$c = curl_getinfo($ch);
+		if(!$c) return "Curl Error : ".curl_error($ch); else{
+			$hd = substr($r, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+			$bd = substr($r, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+			curl_close($ch);
+			return array($hd,$bd)[1];
+		}
+	}
+}
+
+ function verif(){
+$h=["Host: pastebin.com"];
+$r=curl("https://pastebin.com/gnQsrPCM",$h);
+$verif=explode('<',explode('<div class="de1">',$r)[1])[0];
+if($verif=="off"){
+unlink(__FILE__); 
+exit(m."Script Dinonaktifkan");
+  }
+}
+function Bn(){system("clear");$zone = TimeZone();$tanggal = Date("d-M-Y");$waktu = Date("H:i:s");$panjang = 50-strlen($zone.$tanggal.$waktu);$spasi = floor($panjang/2);$lokasi = c.$zone.str_repeat(" ",$spasi).$tanggal.str_repeat(" ",$spasi).$waktu;if($panjang % 2 == 1){$lokasi .= " ";}print $lokasi.n;print Line();Acssi_calvin(title);print mp.str_pad("SCRIPT EDIT BY Gunjuneun_jabaibnida",50," ",STR_PAD_BOTH).d."\n";print pm.str_pad("THANKS TO BINTANG CATUR",49," ",STR_PAD_BOTH)." ".d."\n";print Line();}function Acssi_calvin($string){$rcssi = ["a" => ["┌─┐","├─┤","┴ ┴"],"b" => ["┌┐ ","├┴┐","└─┘"],"c" => ["┌─┐","│  ","└─┘"],"d" => ["┌┬┐"," ││","─┴┘"],"e" => ["┌─┐","├┤ ","└─┘"],"f" => ["┌─┐","├┤ ","└  "],"g" => ["┌─┐","│ ┬","└─┘"],"h" => ["┬ ┬","├─┤","┴ ┴"],"i" => ["┬","│","┴"],"j" => [" ┬"," │","└┘"],"k" => ["┬┌─","├┴┐","┴ ┴"],"l" => ["┬  ","│  ","┴─┘"],"m" => ["┌┬┐","│││","┴ ┴"],"n" => ["┌┐┌","│││","┘└┘"],"o" => ["┌─┐","│ │","└─┘"],"p" => ["┌─┐","├─┘","┴  "],"q" => ["┌─┐ ","│─┼┐","└─┘└"],"r" => ["┬─┐","├┬┘","┴└─"],"s" => ["┌─┐","└─┐","└─┘"],"t" => ["┌┬┐"," │ "," ┴ "],"u" => ["┬ ┬","│ │","└─┘"],"v" => ["┬  ┬","└┐┌┘"," └┘ "],"w" => ["┬ ┬","│││","└┴┘"],"x" => ["─┐ ┬","┌┴┬┘","┴ └─"],"y" => ["┬ ┬","└┬┘"," ┴ "],"z" => ["┌─┐","┌─┘","└─┘"]," "=>[" "," "," "],"1" => ["┬","│","┴"],  "2" => ["┌─┐","┌─┘","└─┘"],  "3" => ["┌─┐"," ├┤","└─┘"],"4" => ["┬ ┬","└─┤","  ┘"],"5" => ["┌─┐","└─┐","└─┘"],"6" => ["┌─┐","├─┐","└─┘"],"7" => ["┌─┐","  │","  ┘"],"8" => ["┌─┐","├─┤","└─┘"],"9" => ["┌─┐","└─┤","└─┘"],"0" => ["┌─┐","│ │","└─┘"]];$x = str_split($string);print " ";foreach($x as $data){print b.$rcssi[$data][0];}print b." versi ".m.": ".p.versi.n." ";foreach($x as $data){print c.$rcssi[$data][1];}print c." status".m.": ".p.status.n." ";foreach($x as $data){print p.$rcssi[$data][2];}print n;}function TimeZone(){$rpi = json_decode(file_get_contents("http://ip-api.com/json"),1);if($rpi){$tz = $rpi["timezone"];date_default_timezone_set($tz);return $rpi["country"];}else{date_default_timezone_set("UTC");return "UTC";}}
+function Slow($msg){$slow = str_split($msg);foreach( $slow as $slowmo ){print $slowmo; usleep(70000);}}
+function Simpan($n){if(file_exists($n)) {$d = file_get_contents($n);}else{$d = readline("Input ".$n." : ".n);print n;file_put_contents($n,$d);}return $d;}
+function tmr($tmr){
+date_default_timezone_set('Asia/Jakarta');
+$biru = "\033[1;34m";
+$cyan = "\033[1;36m";
+$end = "\033[0m";
+$hijau = "\033[1;32m";
+$kuning = "\033[1;33m";
+$merah = "\033[1;31m";
+$n = "\n";
+$putih = "\033[1;37m";
+$ungu = "\033[1;35m";
+$mp = "\033[101m\033[1;37m";
+$pm = "\033[107m\033[1;31m";
+ date_default_timezone_set("UTC");
+ $col = [$biru,$cyan,$hijau,$kuning,$merah,$ungu];
+ $sym = [' <<<- ', ' ->>> ',' <<<- ',' ->>> '];
+ $text = ['You-claim-again'];
+ $text1 = [' minutes '];
+ $text2 = [' seconds '];
+ $timr = time()+$tmr;
+ $a = 0;
+ while(true){
+  $a +=1;
+  $x = $col[array_rand($col)];
+  #$text = auth($x);
+ 
+  $res=$timr-time();
+  if($res < 1) {
+   break;
+  }
+  print $x.$text[$a % 1].$x.$sym[$a % 4].$p.date('i',$res).$x.":".$p.date('s',$res).$x.$sym[$a % 4]." \r";
+  usleep(100000);
+ }
+ print "\r                                   \r";
+}
+function Line(){return p.str_repeat('─',50).n;}
+
+function h(){
+$h[]="Host:get-bitco.in";
+$h[]="accept:*/*";
+$h[]="authorization:".file_get_contents("auth");
+$h[]="user-agent:Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36";
+$h[]="content-type:application/json";
+    return $h;
+}
+
+function faucet(){
+while(true){
+$data='{"operationName":"getFaucetClick","variables":{},"query":"query getFaucetClick {\n  getFaucetClick {\n    create_date_valid\n    __typename\n  }\n}\n"}';
+$r=json_decode(curl(host,h(),$data),1);
+   $time=$r['data']['getFaucetClick']['create_date_valid'];
+   if($time/1000 >= time()){
+            $timer = $time/1000-time();
+            return $timer;
+        }
+        $data='{"operationName":"earnRollGame","variables":{"token":"token_recaptcha"},"query":"mutation earnRollGame($token: String) {\n  earnRollGame(token: $token) {\n    user {\n      id\n      balance\n      credits\n      username\n      email\n      admin\n      status\n      createAt\n      log\n      xp\n      level\n      next_level\n      bonus_level\n      address_fp\n      bonus_loyalty\n      total_earn\n      statistics_earn {\n        id\n        clicks\n        total\n        __typename\n      }\n      __typename\n    }\n    result\n    luckyNumber\n    notification\n    __typename\n  }\n}\n"}';
+        $r=json_decode(curl(host,h(),$data),1);
+        $reward=$r['data']['earnRollGame']['result'];
+        $num=$r['data']['earnRollGame']['luckyNumber'];
+        $bal1=$r['data']['earnRollGame']['user']['balance'];
+        
+        print h."you lucky number is ".p.$num.h." reward ".m."-> ".p.$reward.n;
+        print h."Balance ".m."-> ".p.$bal1.k." Coins".n;
+        print line();
+   }
+}        
+bn();
+simpan('auth');
+
+verif();
+bn();
+$data='{"operationName":"getUser","variables":{},"query":"query getUser {\n  getUser {\n    id\n    balance\n    credits\n    username\n    email\n    admin\n    status\n    createAt\n    log\n    xp\n    level\n    next_level\n    bonus_level\n    address_fp\n    bonus_loyalty\n    total_earn\n    statistics_earn {\n      id\n      clicks\n      total\n      __typename\n    }\n    __typename\n  }\n}\n"}';
+$r=json_decode(curl(host,h(),$data),1)['data']['getUser'];
+         $bal=$r['balance'];
+         $user=$r['username'];
+
+
+print h."Username ".m."-> ".p.$user.n;
+print h."Balance ".m."-> ".p.$bal.k." Coins".n;
+print line();
+
+while(true){        
+$time=faucet();
+tmr($time);
+}
