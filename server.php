@@ -1,20 +1,30 @@
 function server(){
-  $r =  str_repeat("\033[1;95m~", 53)."\n";
+  $r =  str_repeat($lblue."=", 53)."\n";
+$putih="\033[0;37m";
+$putih2="\033[1;37m";
+$red="\033[0;31m";
+$red2="\033[1;31m";
+$green="\033[92m";
+$green2="\033[1;32m";
+$yellow="\033[0;33m";
+$yellow2="\033[1;33m";
+$lblue="\033[0;36m";
+$lblue2="\033[1;36m";
   pil:
-    print "\033[1;92m1. Earnbitmoon         Link web -> https://tinyurl.com/3jr7ss2f\n";
-    print "\033[1;92m2. Faucetpayz [apikey] Link web -> https://tinyurl.com/5fsu3sv5\n";
-    print "\033[1;92m3. Advies     [apikey] Link web -> https://tinyurl.com/y2svh9fh\n";
-    print "\033[1;92m4. Solpick    [apikey] Link web -> https://tinyurl.com/59h4w63u\n";
-    print "\033[1;92m5. Tronpick   [apikey] Link web -> https://tinyurl.com/tronpick\n";
-    print "\033[1;92m6. Dogepick   [apikey] Link web -> https://tinyurl.com/dogpick\n";
-    print "\033[1;92m7. Topadcoin  [apikey] Link web -> https://tinyurl.com/topadcoin\n";
-    print "\033[1;92m8. CryptoPla  [apikey] Link web -> https://tinyurl.com/cryptopla\n";
-    print "\033[1;92m9. Getbitcoins         Link web -> https://tinyurl.com/4m44adk2\n";
-    print "\033[1;92m10. Exit \n";
-    $pil["pilih"]=readline("\033[1;97mInput Your Number : \033[1;92m");
+    print $putih2."1. Earnbitmoon ".$lblue2."         Link web -> ".$yellow2."https://tinyurl.com/3jr7ss2f\n";
+    print $putih2."2. Faucetpayz  ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/5fsu3sv5 \n";
+    print $putih2."3. Advies      ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/y2svh9fh\n";
+    print $putih2."4. Solpick     ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/59h4w63u\n";
+    print $putih2."5. Tronpick    ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/tronpick\n";
+    print $putih2."6. Dogepick    ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/dogpick\n";
+    print $putih2."7. Topadcoin   ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/topadcoin\n";
+    print $putih2."8. CryptoPla   ".$lblue2."[apikey] Link web -> ".$yellow2."https://tinyurl.com/cryptoplanet\n";
+    print $putih2."9. Getbitcoins ".$lblue2."         Link web -> ".$yellow2."https://tinyurl.com/4m44adk2\n";
+    print $putih2."10. Exit \n";
+    $pil["pilih"]=readline($putih."Input Your Number : \033[1;92m");
     print"\033[1;95m$r";
     if($pil["pilih"]==1){
-      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Earnbitmoon'));
+      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Earnbitmoon'));
     }elseif($pil["pilih"]==2){
       eval(file_get_contents('Coming son'));
     }elseif($pil["pilih"]==3){
