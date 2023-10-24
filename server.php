@@ -14,23 +14,23 @@ function server(){
     $pil["pilih"]=readline($putih."Input Your Number : \033[1;92m");
     print"\033[1;95m$r";
     if($pil["pilih"]==1){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Earnbitmoon'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Earnbitmoon'));
     }elseif($pil["pilih"]==2){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Faucetpayz'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Faucetpayz'));
     }elseif($pil["pilih"]==3){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Advies'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Advies'));
     }elseif($pil["pilih"]==4){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Solpick'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Solpick'));
     }elseif($pil["pilih"]==5){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Tronpick'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Tronpick'));
     }elseif($pil["pilih"]==6){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Dogepick'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Dogepick'));
     }elseif($pil["pilih"]==7){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Topadcoin'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Topadcoin'));
     }elseif($pil["pilih"]==8){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/CryptoPla'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/CryptoPla'));
     }elseif($pil["pilih"]==9){
-      eval(file_get_contents('https://github.com/Gunjuneunjabaibnida/SERVER/blob/main/Getbitcoins'));
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Getbitcoins'));
     }elseif($pil["pilih"]==10){
       exit;
     }else{
