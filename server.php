@@ -18,6 +18,7 @@ function server(){
     }elseif($pil["pilih"]==4){
       eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Solpick'));
     }elseif($pil["pilih"]==5){
+      eval(file_get_contents('https://raw.githubusercontent.com/Gunjuneunjabaibnida/SERVER/main/Tronpick'));
     }elseif($pil["pilih"]==6){
       exit;
     }else{
