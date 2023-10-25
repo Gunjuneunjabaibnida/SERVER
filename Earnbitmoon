@@ -5,9 +5,6 @@ title = "earnbitmoon",
 versi = "1.3",
 status = "online",
 host = "https://earnbitmoon.club/",
-host2 = "https://pastebin.com/",
-host4 = "https://vpnapi.io/",
-host5 = "http://ip-api.com/json",
 n = "\n";
 function getStr($string, $start, $end){
   $str = explode($start, $string);
@@ -136,44 +133,11 @@ echo "\r                                                                        
 sleep(1);
 echo "\r                                                                                 \r";
 }
-function u(){
-$h[] = "Content-Type: text/plain";
-   
-   return $h;
-}
-function vpn(){
-$r=json_decode(curl(host5,u()),1);
-$ip=$r["query"];
-$r=json_decode(curl(host4."api/$ip?key=d1cc00ef13be4fbeb46e311529a42631",u()),1);
-$status=$r["security"]["vpn"];
-if($status=="1"){
-echo Slow(mp."MAU NGEBOKEP ATAU NYARI CUAN BRE?? MATIIN VPN!!".n);
-exit;
- }
-}
 bn();
 load("Memuat Server");
 echo Slow(h."                SERVER DI MUAT!!               \r");
 echo Slow("\r                                                   \r");
-bn();
-	balik:
 system("clear");
-bn();
-$user1=$licen=md5($user);
-$res=curl(host2."TKxjHifC",h());
-print h."Code Verif Script ".m."-> ".p.$user1.n;
-print Line();
-        if(strpos($res,$user1) === false){
-        echo Slow(m."$user Tidak Di Izinkan Untuk Mengakses Script!!\n");
-        echo p."please contact ".h."@Jim_dzalroza\n";
-print Line();
-        readline(h."enter to back!");
-        goto balik;
-        }else{
- print Slow(h."$user Anda Di Izinkan Masuk!");
- sleep(2);
- echo Slow(h."\r                                                  \r");
- }
 function iconcaptcha(){
 $header_web = [
 "Host: earnbitmoon.club",
